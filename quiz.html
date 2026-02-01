@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quiz - AI Study Buddy</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+    <link rel="icon" href="assets/logo.svg">
+    <style>
+        /* Quiz Specific Styles */
+        .quiz-container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 2rem;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .quiz-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 2rem;
+        }
+
+        .progress-track {
+            flex: 1;
+            height: 12px;
+            background: #E5E7EB;
+            border: 2px solid #000;
+            border-radius: 999px;
+            margin: 0 2rem;
+            position: relative;
+        }
+
+        .progress-bar {
+            height: 100%;
+            background: #22C55E;
+            width: 20%;
+            border-right: 2px solid #000;
+            border-radius: 999px 0 0 999px;
+            transition: width 0.3s;
+        }
+
+        .question-card {
+            background: #fff;
+            border: 2px solid #000;
+            border-radius: 20px;
+            padding: 3rem;
+            box-shadow: 8px 8px 0 0 #000;
+            margin-bottom: 2rem;
+            flex: 1;
+            /* take available space */
+            display: flex;
+            flex-direction: column;
+        }
+
+        .question-tag {
+            display: inline-block;
+            background: #BFDBFE;
+            padding: 0.5rem 1rem;
+            border: 2px solid #000;
+            border-radius: 999px;
+            font-weight: 700;
+            margin-bottom: 1.5rem;
+            align-self: flex-start;
+        }
+
+        .question-text {
+            font-size: 1.5rem;
+            font-weight: 700;
+            margin-bottom: 2rem;
+            line-height: 1.4;
+        }
+
+        .options-grid {
+            display: grid;
+            gap: 1rem;
+        }
+
+        .option-btn {
+            background: #fff;
+            border: 2px solid #000;
+            padding: 1.25rem;
+            border-radius: 12px;
+            font-size: 1.1rem;
+            font-weight: 600;
+            cursor: pointer;
+            text-align: left;
+            transition: all 0.2s;
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .option-btn:hover {
+            transform: translate(-2px, -2px);
+            box-shadow: 4px 4px 0 0 #000;
+            background: #F5F3F0;
+        }
+
+        .option-key {
+            width: 30px;
+            height: 30px;
+            border: 2px solid #000;
+            border-radius: 6px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 0.9rem;
+            background: #fff;
+        }
+
+        /* Logic States (to be handled by JS later, added for UI preview) */
+        .option-btn.selected {
+            background: #BFDBFE;
+            box-shadow: 4px 4px 0 0 #000;
+        }
+
+        .option-btn.correct {
+            background: #22C55E;
+            color: #fff;
+        }
+
+        .option-btn.wrong {
+            background: #EF4444;
+            color: #fff;
+        }
+
+        .quiz-footer {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-top: auto;
+        }
+    </style>
+</head>
+
+<body style="background: #F5F3F0;">
+
+    <div class="quiz-container">
+        <!-- Header -->
+        <header class="quiz-header">
+            <a href="dashboard.html" class="btn btn-outline" style="border:none; padding: 0.5rem;">✕ Close</a>
+            <div class="progress-track">
+                <div class="progress-bar" style="width: 25%;"></div>
+            </div>
+            <div class="pill pill-accent" style="margin:0;">❤️ 5 Lives</div>
+        </header>
+
+        <!-- Question Card -->
+        <main class="question-card">
+            <div class="question-tag">IELTS Reading</div>
+            <h2 class="question-text">Which of the following best describes the main idea of the passage regarding
+                global warming?</h2>
+
+            <div class="options-grid">
+                <button class="option-btn">
+                    <span class="option-key">A</span>
+                    It is solely caused by industrial activities.
+                </button>
+                <button class="option-btn">
+                    <span class="option-key">B</span>
+                    It serves as a natural cycle of the earth's climate.
+                </button>
+                <button class="option-btn selected">
+                    <span class="option-key">C</span>
+                    It is a complex phenomenon influenced by multiple factors.
+                </button>
+                <button class="option-btn">
+                    <span class="option-key">D</span>
+                    Its effects are negligible on sea levels.
+                </button>
+            </div>
+        </main>
+
+        <!-- Footer -->
+        <footer class="quiz-footer">
+            <button class="btn btn-secondary">Skip</button>
+            <button class="btn btn-primary" style="padding: 0.8rem 3rem;">Check Answer</button>
+        </footer>
+    </div>
+
+</body>
+
+</html>

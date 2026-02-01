@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard - AI Study Buddy</title>
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap"
+        rel="stylesheet">
+
+    <!-- Styles -->
+    <link rel="stylesheet" href="styles.css">
+
+    <!-- Favicon -->
+    <link rel="icon" href="assets/logo.svg">
+</head>
+
+<body class="app-body">
+
+    <!-- App Layout -->
+    <div class="app-container">
+
+        <!-- Sidebar -->
+        <aside class="sidebar">
+            <a href="index.html" class="logo"
+                style="display: flex; align-items: center; gap: 0.5rem; margin-bottom: 3rem;">
+                <img src="assets/logo.svg" alt="Logo" style="height: 32px; width: auto;">
+                Study Buddy
+            </a>
+
+            <nav class="sidebar-nav">
+                <a href="dashboard.html" class="nav-item active">
+                    <span class="icon">🏠</span> Dashboard
+                </a>
+                <a href="library.html" class="nav-item">
+                    <span class="icon">📚</span> My Library
+                </a>
+                <a href="progress.html" class="nav-item">
+                    <span class="icon">📊</span> Progress
+                </a>
+                <a href="leaderboard.html" class="nav-item">
+                    <span class="icon">🏆</span> Leaderboard
+                </a>
+                <a href="settings.html" class="nav-item">
+                    <span class="icon">⚙️</span> Settings
+                </a>
+            </nav>
+
+            <div class="user-profile">
+                <div class="avatar" style="background: #22C55E;">You</div>
+                <div class="user-info">
+                    <div class="user-name">Student Name</div>
+                    <div class="user-level">Lvl 5 Scholar</div>
+                </div>
+            </div>
+        </aside>
+
+        <!-- Main Content -->
+        <main class="main-content">
+
+            <!-- Top Bar -->
+            <header class="top-bar">
+                <h1>Welcome back! 👋</h1>
+                <div class="stats-pills">
+                    <div class="pill pill-accent" style="margin:0;">🔥 12 Day Streak</div>
+                    <div class="pill pill-green" style="margin:0;">💎 450 XP</div>
+                </div>
+            </header>
+
+            <!-- Quick Actions -->
+            <section class="dashboard-grid">
+                <!-- Daily Goal Card -->
+                <div class="brutalist-card action-card">
+                    <div class="card-header">
+                        <h3>Daily Goal</h3>
+                        <span class="icon-box"
+                            style="width: 40px; height: 40px; font-size: 1.2rem; background: #BFDBFE;">🎯</span>
+                    </div>
+                    <p style="color: var(--text-muted);">You're 50 XP away from your daily target!</p>
+                    <div class="progress-bar">
+                        <div class="progress-fill" style="width: 75%;"></div>
+                    </div>
+                    <a href="quiz.html" class="btn btn-primary" style="width: 100%; margin-top: 1rem;">Continue
+                        Learning</a>
+                </div>
+
+                <!-- Create New Quiz -->
+                <div class="brutalist-card action-card">
+                    <div class="card-header">
+                        <h3>Generate Quiz</h3>
+                        <span class="icon-box"
+                            style="width: 40px; height: 40px; font-size: 1.2rem; background: #FCA5A5;">✨</span>
+                    </div>
+                    <p style="color: var(--text-muted);">Upload notes or pick a topic to generate a new quiz.</p>
+                    <button class="btn btn-secondary" style="width: 100%; margin-top: 1rem;">+ New Quiz</button>
+                </div>
+            </section>
+
+            <!-- Recent Modules -->
+            <section class="recent-section">
+                <h2>Recent Decks</h2>
+                <div class="modules-list" style="grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));">
+
+                    <div class="module-card">
+                        <div class="module-image" style="background: #E0F2FE;">
+                            <img src="assets/icon_reading.svg" alt="Reading" style="width:40px;height:40px;">
+                        </div>
+                        <div class="module-content">
+                            <h3>IELTS Reading</h3>
+                            <p class="small-text" style="color: var(--text-muted); margin-top: 0;">20 Questions</p>
+                            <a href="quiz.html" class="btn-link">Practice →</a>
+                        </div>
+                    </div>
+
+                    <div class="module-card">
+                        <div class="module-image" style="background: #FAE8FF;">
+                            <img src="assets/icon_writing.svg" alt="Writing" style="width:40px;height:40px;">
+                        </div>
+                        <div class="module-content">
+                            <h3>Task 2 Writing</h3>
+                            <p class="small-text" style="color: var(--text-muted); margin-top: 0;">Essay Structure</p>
+                            <a href="quiz.html" class="btn-link">Practice →</a>
+                        </div>
+                    </div>
+
+                    <div class="module-card">
+                        <div class="module-image" style="background: #DCFCE7;">
+                            <img src="assets/icon_listening.svg" alt="Listening" style="width:40px;height:40px;">
+                        </div>
+                        <div class="module-content">
+                            <h3>Listening #4</h3>
+                            <p class="small-text" style="color: var(--text-muted); margin-top: 0;">15 Min Session</p>
+                            <a href="quiz.html" class="btn-link">Practice →</a>
+                        </div>
+                    </div>
+
+                </div>
+            </section>
+
+        </main>
+    </div>
+
+</body>
+
+</html>

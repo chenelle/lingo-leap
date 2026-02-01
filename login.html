@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Log In - AI Study Buddy</title>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+    <link rel="icon" href="assets/logo.svg">
+    <style>
+        .auth-container {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 2rem;
+        }
+
+        .auth-card {
+            background: #fff;
+            border: 2px solid #000;
+            border-radius: 20px;
+            padding: 3rem;
+            box-shadow: 8px 8px 0 0 #000;
+            width: 100%;
+            max-width: 450px;
+            text-align: center;
+        }
+
+        .input-group {
+            text-align: left;
+            margin-bottom: 1.5rem;
+        }
+
+        .input-group label {
+            display: block;
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+        }
+
+        .input-field {
+            width: 100%;
+            padding: 1rem;
+            border: 2px solid #000;
+            border-radius: 10px;
+            font-family: inherit;
+            font-size: 1rem;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="auth-container">
+        <div class="auth-card">
+            <a href="index.html" style="display: inline-block; margin-bottom: 1.5rem;">
+                <img src="assets/logo.svg" alt="Logo" style="height: 50px; margin: 0 auto;">
+            </a>
+            <h1 style="margin-bottom: 0.5rem;">Welcome Back</h1>
+            <p style="color: var(--text-muted); margin-bottom: 2rem;">Ready to crush your exam?</p>
+
+            <form action="dashboard.html">
+                <div class="input-group">
+                    <label>Email Address</label>
+                    <input type="email" class="input-field" placeholder="student@example.com" required>
+                </div>
+                <div class="input-group">
+                    <label>Password</label>
+                    <input type="password" class="input-field" placeholder="••••••••" required>
+                </div>
+                <button type="submit" class="btn btn-primary" style="width: 100%;">Log In</button>
+            </form>
+
+            <p style="margin-top: 1.5rem;">
+                Don't have an account? <a href="signup.html" style="text-decoration: underline; font-weight: 700;">Sign
+                    up</a>
+            </p>
+        </div>
+    </div>
+</body>
+
+</html>

@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Leaderboard - AI Study Buddy</title>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+    <link rel="icon" href="assets/logo.svg">
+</head>
+
+<body class="app-body">
+    <div class="app-container">
+        <!-- Sidebar -->
+        <aside class="sidebar">
+            <a href="index.html" class="logo"
+                style="display: flex; align-items: center; gap: 0.5rem; margin-bottom: 3rem;">
+                <img src="assets/logo.svg" alt="Logo" style="height: 32px; width: auto;">
+                Study Buddy
+            </a>
+            <nav class="sidebar-nav">
+                <a href="dashboard.html" class="nav-item">🏠 Dashboard</a>
+                <a href="library.html" class="nav-item">📚 My Library</a>
+                <a href="progress.html" class="nav-item">📊 Progress</a>
+                <a href="leaderboard.html" class="nav-item active">🏆 Leaderboard</a>
+                <a href="settings.html" class="nav-item">⚙️ Settings</a>
+            </nav>
+            <div class="user-profile">
+                <div class="avatar" style="background: #22C55E;">You</div>
+                <div class="user-info">
+                    <div class="user-name">Student Name</div>
+                    <div class="user-level">Lvl 5 Scholar</div>
+                </div>
+            </div>
+        </aside>
+
+        <!-- Main Content -->
+        <main class="main-content">
+            <header class="top-bar">
+                <h1>Leaderboard</h1>
+                <div class="stats-pills">
+                    <div class="pill pill-accent">Weekly League</div>
+                </div>
+            </header>
+
+            <div class="table-container">
+                <table class="data-table">
+                    <thead>
+                        <tr>
+                            <th style="width: 50px;"> Rank</th>
+                            <th>Student</th>
+                            <th>Xp Earned</th>
+                            <th>Streak</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td style="font-size: 1.5rem;">🥇</td>
+                            <td>
+                                <div style="display: flex; align-items: center; gap: 1rem;">
+                                    <div class="avatar" style="background: #FFC800;">JS</div>
+                                    <strong>Jessica S.</strong>
+                                </div>
+                            </td>
+                            <td>12,450 XP</td>
+                            <td>🔥 45</td>
+                        </tr>
+                        <tr>
+                            <td style="font-size: 1.5rem;">🥈</td>
+                            <td>
+                                <div style="display: flex; align-items: center; gap: 1rem;">
+                                    <div class="avatar" style="background: #BFDBFE;">MR</div>
+                                    <strong>Mike Ross</strong>
+                                </div>
+                            </td>
+                            <td>10,200 XP</td>
+                            <td>🔥 30</td>
+                        </tr>
+                        <tr>
+                            <td style="font-size: 1.5rem;">🥉</td>
+                            <td>
+                                <div style="display: flex; align-items: center; gap: 1rem;">
+                                    <div class="avatar" style="background: #FCA5A5;">AL</div>
+                                    <strong>Ada Lovelace</strong>
+                                </div>
+                            </td>
+                            <td>9,800 XP</td>
+                            <td>🔥 18</td>
+                        </tr>
+                        <!-- Current User -->
+                        <tr style="background: #F9FAFB; border: 2px solid var(--primary);">
+                            <td style="font-weight: 800;">#4</td>
+                            <td>
+                                <div style="display: flex; align-items: center; gap: 1rem;">
+                                    <div class="avatar" style="background: #22C55E;">You</div>
+                                    <strong>Student Name</strong>
+                                </div>
+                            </td>
+                            <td><strong>9,150 XP</strong></td>
+                            <td>🔥 12</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </main>
+    </div>
+</body>
+
+</html>

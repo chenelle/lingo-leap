@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Progress - AI Study Buddy</title>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+    <link rel="icon" href="assets/logo.svg">
+</head>
+
+<body class="app-body">
+    <div class="app-container">
+        <!-- Sidebar -->
+        <aside class="sidebar">
+            <a href="index.html" class="logo"
+                style="display: flex; align-items: center; gap: 0.5rem; margin-bottom: 3rem;">
+                <img src="assets/logo.svg" alt="Logo" style="height: 32px; width: auto;">
+                Study Buddy
+            </a>
+            <nav class="sidebar-nav">
+                <a href="dashboard.html" class="nav-item">🏠 Dashboard</a>
+                <a href="library.html" class="nav-item">📚 My Library</a>
+                <a href="progress.html" class="nav-item active">📊 Progress</a>
+                <a href="leaderboard.html" class="nav-item">🏆 Leaderboard</a>
+                <a href="settings.html" class="nav-item">⚙️ Settings</a>
+            </nav>
+            <div class="user-profile">
+                <div class="avatar" style="background: #22C55E;">You</div>
+                <div class="user-info">
+                    <div class="user-name">Student Name</div>
+                    <div class="user-level">Lvl 5 Scholar</div>
+                </div>
+            </div>
+        </aside>
+
+        <!-- Main Content -->
+        <main class="main-content">
+            <header class="top-bar">
+                <h1>Progress Analytics</h1>
+            </header>
+
+            <div class="dashboard-grid" style="grid-template-columns: repeat(3, 1fr); margin-bottom: 2rem;">
+                <div class="brutalist-card">
+                    <h3 style="color:var(--text-muted); font-size: 0.9rem;">Estimated Band Score</h3>
+                    <h2 style="font-size: 3rem; color: var(--primary);">7.5</h2>
+                    <p class="small-text">+0.5 this week</p>
+                </div>
+                <div class="brutalist-card">
+                    <h3 style="color:var(--text-muted); font-size: 0.9rem;">Quizzes Taken</h3>
+                    <h2 style="font-size: 3rem;">42</h2>
+                    <p class="small-text">Top 10% of students</p>
+                </div>
+                <div class="brutalist-card">
+                    <h3 style="color:var(--text-muted); font-size: 0.9rem;">Study Time</h3>
+                    <h2 style="font-size: 3rem;">12h</h2>
+                    <p class="small-text">Avg 1.2h / day</p>
+                </div>
+            </div>
+
+            <div class="chart-container">
+                <h3>Weakness Analysis</h3>
+                <p style="color:var(--text-muted);">Focus on Writing Task 1 to improve your score.</p>
+                <div class="bar-chart">
+                    <div class="chart-bar" style="height: 80%; background: #22C55E;"><span
+                            class="bar-label">Reading</span></div>
+                    <div class="chart-bar" style="height: 65%;"><span class="bar-label">Listening</span></div>
+                    <div class="chart-bar" style="height: 40%; background: #EF4444;"><span
+                            class="bar-label">Writing</span></div>
+                    <div class="chart-bar" style="height: 70%;"><span class="bar-label">Speaking</span></div>
+                </div>
+            </div>
+        </main>
+    </div>
+</body>
+
+</html>
