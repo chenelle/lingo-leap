@@ -42,7 +42,8 @@
         .progress-bar {
             height: 100%;
             background: #22C55E;
-            width: 20%;
+            width: 0%;
+            /* Start at 0% */
             border-right: 2px solid #000;
             border-radius: 999px 0 0 999px;
             transition: width 0.3s;
@@ -117,7 +118,7 @@
             background: #fff;
         }
 
-        /* Logic States (to be handled by JS later, added for UI preview) */
+        /* Logic States */
         .option-btn.selected {
             background: #BFDBFE;
             box-shadow: 4px 4px 0 0 #000;
@@ -128,9 +129,21 @@
             color: #fff;
         }
 
+        .option-btn.correct .option-key {
+            background: #22C55E;
+            color: #fff;
+            border-color: #22C55E;
+        }
+
         .option-btn.wrong {
             background: #EF4444;
             color: #fff;
+        }
+
+        .option-btn.wrong .option-key {
+            background: #EF4444;
+            color: #fff;
+            border-color: #EF4444;
         }
 
         .quiz-footer {
@@ -138,6 +151,12 @@
             justify-content: space-between;
             align-items: center;
             margin-top: auto;
+        }
+
+        /* Helper for button states */
+        .btn-success {
+            background: #22C55E !important;
+            color: #fff !important;
         }
     </style>
 </head>
@@ -149,43 +168,44 @@
         <header class="quiz-header">
             <a href="dashboard.html" class="btn btn-outline" style="border:none; padding: 0.5rem;">✕ Close</a>
             <div class="progress-track">
-                <div class="progress-bar" style="width: 25%;"></div>
+                <div class="progress-bar" id="quiz-progress-bar" style="width: 0%;"></div>
             </div>
-            <div class="pill pill-accent" style="margin:0;">❤️ 5 Lives</div>
+            <div class="pill pill-accent" style="margin:0;" id="quiz-score">💎 0 XP</div>
         </header>
 
         <!-- Question Card -->
-        <main class="question-card">
-            <div class="question-tag">IELTS Reading</div>
-            <h2 class="question-text">Which of the following best describes the main idea of the passage regarding
-                global warming?</h2>
+        <main class="question-card" id="question-card">
+            <div class="question-tag" id="question-tag">Loading...</div>
+            <h2 class="question-text" id="question-text">Loading question...</h2>
 
-            <div class="options-grid">
-                <button class="option-btn">
-                    <span class="option-key">A</span>
-                    It is solely caused by industrial activities.
-                </button>
-                <button class="option-btn">
-                    <span class="option-key">B</span>
-                    It serves as a natural cycle of the earth's climate.
-                </button>
-                <button class="option-btn selected">
-                    <span class="option-key">C</span>
-                    It is a complex phenomenon influenced by multiple factors.
-                </button>
-                <button class="option-btn">
-                    <span class="option-key">D</span>
-                    Its effects are negligible on sea levels.
-                </button>
+            <div class="options-grid" id="options-grid">
+                <!-- Options injected by JS -->
+            </div>
+        </main>
+
+        <!-- Results Card (Hidden by default) -->
+        <main class="question-card" id="results-card" style="display: none; text-align: center;">
+            <div class="question-tag" style="background: #22C55E; color: white; align-self: center;">Quiz Completed
+            </div>
+            <h2 style="font-size: 2.5rem; margin: 2rem 0;">🎉 Great Job!</h2>
+            <div style="font-size: 4rem; font-weight: 800; margin-bottom: 2rem;" id="final-score">0/0</div>
+            <p style="color: var(--text-muted); margin-bottom: 2rem;">You've earned <span id="final-xp">0</span> XP
+                towards your daily goal.</p>
+            <div style="display: flex; gap: 1rem; justify-content: center;">
+                <a href="dashboard.html" class="btn btn-outline">Back Home</a>
+                <button onclick="location.reload()" class="btn btn-primary">Try Again</button>
             </div>
         </main>
 
         <!-- Footer -->
-        <footer class="quiz-footer">
-            <button class="btn btn-secondary">Skip</button>
-            <button class="btn btn-primary" style="padding: 0.8rem 3rem;">Check Answer</button>
+        <footer class="quiz-footer" id="quiz-footer">
+            <button class="btn btn-secondary" id="skip-btn">Skip</button>
+            <button class="btn btn-primary" style="padding: 0.8rem 3rem;" id="check-btn">Check Answer</button>
         </footer>
     </div>
+
+    <!-- Link Logic -->
+    <script src="app.js"></script>
 
 </body>
 
