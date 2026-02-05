@@ -7,9 +7,7 @@ __pycache__/
 .DS_Store
 
 # Agent & System Files
-AGENTS.md
-CLAUDE.md
-GEMINI.md
+
 styles.css.bak
 
 # Internal Folders
