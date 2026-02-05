@@ -5,3 +5,14 @@ token.json
 __pycache__/
 *.pyc
 .DS_Store
+
+# Agent & System Files
+AGENTS.md
+CLAUDE.md
+GEMINI.md
+styles.css.bak
+
+# Internal Folders
+directives/
+execution/
+competitor reference/
