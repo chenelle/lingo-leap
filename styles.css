@@ -436,6 +436,10 @@ img {
 }
 
 /* Modules */
+#modules {
+    padding: 6rem 0;
+}
+
 .modules-list {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
