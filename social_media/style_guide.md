@@ -12,7 +12,7 @@ Use these exact hex codes to maintain brand consistency.
 | **Vibrant Green** | `#22C55E` | Primary | Main mascot/frog color, success indicators, primary buttons. |
 | **Soft Blue** | `#BFDBFE` | Secondary | Backgrounds, sky elements, calm accents. |
 | **Coral Pink** | `#FCA5A5` | Accent | Cheeks/blush, highlights, urgent alerts (cute version). |
-| **Cream** | `#F5F3F0` | Background | Main canvas background, replaces stark white. |
+| **Cream** | `#F5F3F0` | Detailed Background | Use as a base, but mix with random varied backgrounds. |
 | **Dark Charcoal** | `#1F2937` | Outlines/Text | ALL strokes, outlines, and main text (never pure black #000). |
 | **Solid Black** | `#000000` | Borders | Hard UI borders and shadow offsets only. |
 
@@ -29,7 +29,9 @@ All generated images should strictly follow these rules:
 1.  **Thick Outlines:** Every major element must have a thick, consistent dark outline.
 2.  **Flat Colors:** No gradients, no realistic shading, no 3D rendering. Use solid blocks of color.
 3.  **Minimal Detail:** Keep shapes simple and iconic. Think "sticker" or "vector icon".
-4.  **No Text:** Do not generate text *inside* the image generation. Add text overlays in post-production (Canva/Figma).
+4.  **Text Allowed:** Text elements and typography can be included in the generated images.
+5.  **Varied Backgrounds:** Do not default to white. Use random, vibrant, or pastel backgrounds.
+6.  **High Resolution:** Generate images at 1080p resolution (minimum 1080x1080) to ensure crisp quality.
 
 ### The Mascot
 *   **Species:** Cute Frog.
@@ -45,7 +47,7 @@ Use these formulas in your image generator to create on-brand assets.
 **Best for:** Carousel slides, single focus images.
 
 > **Prompt:**
-> a cute kawaii frog [ACTION/POSE], vector art style, flat design, thick black outlines, white background, simple minimalist, vibrant green coloring #22C55E, pink blush cheeks #FCA5A5, no text, high quality vector --no shading, gradients, 3d, realistic
+> a cute kawaii frog [ACTION/POSE], vector art style, flat design, thick black outlines, random colorful background, simple minimalist, vibrant green coloring #22C55E, pink blush cheeks #FCA5A5, includes text elements, high quality vector --no shading, gradients, 3d, realistic
 
 **Examples:**
 *   *...frog studying with a tall stack of books...*
@@ -56,7 +58,7 @@ Use these formulas in your image generator to create on-brand assets.
 **Best for:** Story backgrounds, detailed posts.
 
 > **Prompt:**
-> a cute kawaii aesthetic study desk scene, [OBJECTS], neo-brutalist style, flat illustration, thick dark outlines, pastel color palette, soft blue background #BFDBFE, cream desk, simple vector style --no text, complex details, realistic lighting
+> a cute kawaii aesthetic study desk scene, [OBJECTS], neo-brutalist style, flat illustration, thick dark outlines, pastel color palette, random background color, simple vector style, includes text --no complex details, realistic lighting
 
 **Examples:**
 *   *...study desk scene, laptop with code on screen, cup of coffee, plant...*

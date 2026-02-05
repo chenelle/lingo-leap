@@ -18,11 +18,11 @@
 
 ### 2. Design Assembly (Canva/Figma)
 *   **Canvas Size:** 1080x1350 (Portrait 4:5) for feed, 1080x1920 (9:16) for Stories.
-*   **Background:** Set specific background color (Cream `#F5F3F0` or Blue `#BFDBFE`).
+*   **Background:** Use random or varied backgrounds (Solid colors, patterns, or gradients). Avoid sticking to just one color.
 *   **Asset:** Remove background from generated frog (if needed) and place centrally.
 *   **Overlays:**
     *   Add "Shadowbox" border (Solid black 2px border + 4px offset shadow).
-    *   Add Text using **Plus Jakarta Sans**.
+    *   Add additional Text using **Plus Jakarta Sans** if needed (complementing image text).
 
 ## Phase 3: Captioning & Posting
 1.  **Write Caption:**
