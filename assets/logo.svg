@@ -1,22 +1,31 @@
 <svg viewBox="0 0 512 512" xmlns="http://www.w3.org/2000/svg">
-  <!-- Head shape -->
-  <path fill="#58CC02" d="M120 160c-25 0-45 20-45 45 0 15 8 28 20 36-15 15-25 35-25 59 0 44 36 80 80 80h212c44 0 80-36 80-80 0-24-10-44-25-59 12-8 20-21 20-36 0-25-20-45-45-45-18 0-34 11-41 27-20-11-44-17-70-17s-50 6-70 17c-7-16-23-27-41-27z"/>
+  <!-- Defined Colors: 
+       Green: #22C55E
+       Outline/Dark: #1F2937
+       Cheeks: #FCA5A5
+       White: #FFFFFF
+  -->
   
-  <!-- Eyes -->
-  <g transform="translate(0, 10)">
-    <circle cx="180" cy="220" r="55" fill="#FFFFFF"/>
-    <circle cx="180" cy="220" r="25" fill="#000000"/>
-    <circle cx="190" cy="210" r="8" fill="#FFFFFF"/>
+  <g stroke="#1F2937" stroke-width="12" stroke-linecap="round" stroke-linejoin="round">
+    <!-- Main Face Shape including Eye Bumps -->
+    <path fill="#22C55E" d="M136 240c0-6 0-12 2-18-20-8-34-28-34-50 0-30 24-54 54-54s54 24 54 54c0 6-2 12-4 18 14 0 30-2 48-2s34 2 48 2c-2-6-4-12-4-18 0-30 24-54 54-54s54 24 54 54c0 22-14 42-34 50 2 6 2 12 2 18 0 76-64 120-120 120s-120-44-120-120z"/>
     
-    <circle cx="332" cy="220" r="55" fill="#FFFFFF"/>
-    <circle cx="332" cy="220" r="25" fill="#000000"/>
-    <circle cx="342" cy="210" r="8" fill="#FFFFFF"/>
+    <!-- Eyes -->
+    <!-- Left Eye -->
+    <circle cx="158" cy="172" r="38" fill="#FFFFFF" stroke="none"/>
+    <circle cx="166" cy="172" r="18" fill="#1F2937" stroke="none"/>
+    <circle cx="170" cy="166" r="6" fill="#FFFFFF" stroke="none"/>
+    
+    <!-- Right Eye -->
+    <circle cx="354" cy="172" r="38" fill="#FFFFFF" stroke="none"/>
+    <circle cx="346" cy="172" r="18" fill="#1F2937" stroke="none"/>
+    <circle cx="342" cy="166" r="6" fill="#FFFFFF" stroke="none"/>
+    
+    <!-- Cheeks (Blush) -->
+    <circle cx="136" cy="250" r="14" fill="#FCA5A5" stroke="none" opacity="0.9"/>
+    <circle cx="376" cy="250" r="14" fill="#FCA5A5" stroke="none" opacity="0.9"/>
+    
+    <!-- Mouth -->
+    <path fill="none" d="M226 260c10 12 40 12 60 0" stroke-width="10"/>
   </g>
-
-  <!-- Blush -->
-  <ellipse cx="150" cy="300" rx="15" ry="8" fill="#FFC8DD" opacity="0.6"/>
-  <ellipse cx="362" cy="300" rx="15" ry="8" fill="#FFC8DD" opacity="0.6"/>
-
-  <!-- Mouth -->
-  <path fill="none" stroke="#333" stroke-width="8" stroke-linecap="round" d="M220 300 q36 20 72 0"/>
 </svg>
