@@ -446,14 +446,132 @@ Since this is static HTML/CSS/JS, no build step is needed. Verify by:
 | **Recommendations** | View results for different scores | Personalized recommendations render |
 | **Homepage CTA** | Click "Take Free Quiz" on homepage | Opens `free-quiz.html` |
 
-### 3. Email Collection Verification
-For Phase 1 (demo), emails are stored in `localStorage`. To verify:
-```javascript
-// In browser console after submission:
-localStorage.getItem('userEmail'); // Should return email
+### 3. Email Collection via Sender.net API
+
+#### Setup Steps
+1. Get API Token from Sender.net dashboard (Settings > API access tokens)
+2. Create a Group/List for "Quiz Leads" in Sender.net
+3. Note the Group ID (found in Groups section)
+
+#### Environment Variables
+Create `.env` file (NEVER commit this):
+```
+SENDER_API_TOKEN=your_token_here
+SENDER_GROUP_ID=your_group_id
 ```
 
-**Future:** Connect to email marketing tool (Mailchimp, ConvertKit) via API.
+#### Backend API Endpoint (Required)
+Since we can't expose the API token in frontend JavaScript, create a serverless function:
+
+**Option A: Vercel Serverless Function** (`api/subscribe.js`)
+```javascript
+export default async function handler(req, res) {
+  if (req.method !== 'POST') {
+    return res.status(405).json({ error: 'Method not allowed' });
+  }
+
+  const { email, score, bandLevel } = req.body;
+
+  try {
+    // Add subscriber to Sender.net
+    const response = await fetch('https://api.sender.net/v2/subscribers', {
+      method: 'POST',
+      headers: {
+        'Authorization': `Bearer ${process.env.SENDER_API_TOKEN}`,
+        'Content-Type': 'application/json',
+        'Accept': 'application/json'
+      },
+      body: JSON.stringify({
+        email: email,
+        groups: [process.env.SENDER_GROUP_ID],
+        fields: {
+          quiz_score: score,
+          band_level: bandLevel,
+          quiz_date: new Date().toISOString()
+        }
+      })
+    });
+
+    if (!response.ok) {
+      const error = await response.json();
+      return res.status(response.status).json({ error: error.message });
+    }
+
+    const data = await response.json();
+    
+    // Trigger automated email campaign
+    await fetch('https://api.sender.net/v2/campaigns/trigger', {
+      method: 'POST',
+      headers: {
+        'Authorization': `Bearer ${process.env.SENDER_API_TOKEN}`,
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify({
+        email: email,
+        campaign_id: process.env.SENDER_RESULTS_CAMPAIGN_ID,
+        personalization: {
+          band_score: bandLevel,
+          quiz_score: `${score}/5`
+        }
+      })
+    });
+
+    return res.status(200).json({ success: true, data });
+  } catch (error) {
+    return res.status(500).json({ error: error.message });
+  }
+}
+```
+
+**Option B: Netlify Function** (similar structure)
+
+#### Frontend Integration
+Update the email form handler:
+```javascript
+document.getElementById('email-form').addEventListener('submit', async (e) => {
+  e.preventDefault();
+  const email = document.getElementById('email-input').value;
+  const btn = e.target.querySelector('button');
+  
+  // Calculate score
+  const score = calculateScore();
+  
+  // Show loading state
+  btn.disabled = true;
+  btn.innerText = 'Submitting...';
+  
+  try {
+    const response = await fetch('/api/subscribe', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({
+        email: email,
+        score: score.correctAnswers,
+        bandLevel: score.band
+      })
+    });
+    
+    if (!response.ok) {
+      throw new Error('Failed to submit');
+    }
+    
+    // Store locally for results page
+    localStorage.setItem('quizScore', JSON.stringify(score));
+    
+    // Redirect to results
+    window.location.href = 'quiz-results.html';
+  } catch (error) {
+    alert('Something went wrong. Please try again.');
+    btn.disabled = false;
+    btn.innerText = 'View My Results →';
+  }
+});
+```
+
+#### Verification
+1. Submit test email via quiz
+2. Check Sender.net dashboard → Subscribers → verify new contact appears with custom fields
+3. Verify automated email is sent with quiz results
 
 ### 4. Mobile Responsiveness
 Test on mobile viewport (375px width):
@@ -467,18 +585,38 @@ Test on mobile viewport (375px width):
 ## User Review Required
 
 > [!IMPORTANT]
-> **Key decisions before implementation:**
+> **Sender.net Setup Requirements:**
 
-1. **Email capture tool** — For the MVP, should I use `localStorage` (demo only), or do you want me to integrate a real email service (Mailchimp, ConvertKit, Google Sheets API) immediately?
+### Before Implementation:
+1. **Sender.net Account**
+   - Create account at [sender.net](https://sender.net)
+   - Navigate to Settings > API Access Tokens
+   - Generate new API token and share it securely (I'll store in `.env`)
 
-2. **Question validation** — The 5 questions I designed target IELTS Bands 4-8. Do you want me to add more questions to the bank for variety, or is 5 sufficient for the lead magnet?
+2. **Create Email List**
+   - In Sender.net dashboard, create a new Group called "Quiz Leads"
+   - Note the Group ID (I'll need this for the API)
+   - Add custom fields: `quiz_score`, `band_level`, `quiz_date`
 
-3. **Results delivery** — Should the results page also email a PDF summary to the user, or just display on-screen?
+3. **Email Campaign Template**
+   - Do you want me to create the HTML email template for quiz results?
+   - Or will you design it in Sender.net's email builder?
+   - Template should include:
+     - Personalized greeting with band score
+     - Detailed breakdown of strengths/weaknesses
+     - CTA to sign up for the platform
 
-4. **Analytics** — Should I add event tracking (e.g., Google Analytics, Plausible) to measure:
-   - How many visitors start the quiz
-   - Drop-off rate per question
+4. **Deployment Platform**
+   - Since we're using Vercel, I'll create a serverless function (`/api/subscribe.js`)
+   - This keeps your API token secure (never exposed to frontend)
+
+### Optional Enhancements:
+5. **Analytics** — Should I add event tracking (e.g., Google Analytics, Plausible) to measure:
+   - Quiz start rate
+   - Drop-off per question
    - Email submission conversion rate
+
+6. **Question Bank** — The 5 questions are sufficient for MVP. Want to add variety later?
 
 ---
 

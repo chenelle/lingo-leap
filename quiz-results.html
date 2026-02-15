@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Your Quiz Results | Lingoleap</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;700;800&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+    <link rel="icon" href="assets/logo.svg">
+</head>
+
+<body>
+    <div class="results-container">
+
+        <!-- Band Score Hero -->
+        <div class="results-hero brutalist-card" style="text-align: center; padding: 4rem 2rem; margin-bottom: 3rem;">
+            <div class="pill pill-accent">Your Estimated Band Score</div>
+            <h1 class="band-score" id="band-score" style="font-size: 6rem; margin: 1rem 0;">7.5</h1>
+            <p class="band-descriptor" id="band-descriptor" style="font-size: 1.5rem; color: var(--text-muted);">Good
+                User (CLB 8-9)</p>
+            <div class="score-breakdown" id="score-breakdown" style="font-size: 1.1rem; margin-top: 2rem;">
+                You answered <strong>4 out of 5</strong> questions correctly!
+            </div>
+        </div>
+
+        <!-- Strengths & Weaknesses Analysis -->
+        <div class="analysis-grid"
+            style="display: grid; grid-template-columns: 1fr 1fr; gap: 2rem; margin-bottom: 3rem;">
+            <div class="analysis-card card-strengths brutalist-card"
+                style="padding: 2rem; background: #DCFCE7; border-color: var(--primary);">
+                <h3 style="font-size: 1.5rem; margin-bottom: 1rem;">✅ Your Strengths</h3>
+                <ul id="strengths-list" style="font-size: 1.1rem; line-height: 1.8;">
+                    <!-- Dynamic content -->
+                </ul>
+            </div>
+            <div class="analysis-card card-weaknesses brutalist-card"
+                style="padding: 2rem; background: #FEE2E2; border-color: #FCA5A5;">
+                <h3 style="font-size: 1.5rem; margin-bottom: 1rem;">⚠️ Areas to Improve</h3>
+                <ul id="weaknesses-list" style="font-size: 1.1rem; line-height: 1.8;">
+                    <!-- Dynamic content -->
+                </ul>
+            </div>
+        </div>
+
+        <!-- Personalized Recommendations -->
+        <div class="recommendations brutalist-card" style="padding: 3rem; margin-bottom: 3rem;">
+            <h2 style="font-size: 2rem; margin-bottom: 2rem; text-align: center;">📚 Your Personalized Study Plan</h2>
+            <div class="recommendation-list" id="rec-list" style="display: grid; gap: 1.5rem;">
+                <!-- Dynamic recommendations -->
+            </div>
+        </div>
+
+        <!-- CTA Box -->
+        <div class="cta-box"
+            style="text-align: center; padding: 3rem; background: var(--primary); color: white; border-radius: var(--radius-lg); border: var(--border-width) solid var(--border-color); box-shadow: 8px 8px 0 0 var(--border-color);">
+            <h2 style="font-size: 2rem; margin-bottom: 1rem; color: white;">Ready to reach your target score?</h2>
+            <p style="font-size: 1.1rem; margin-bottom: 2rem; color: rgba(255,255,255,0.9);">
+                Join thousands of students who improved their Band scores with our AI-powered platform.
+            </p>
+            <a href="signup.html" class="btn btn-secondary" style="font-size: 1.25rem; padding: 1rem 3rem;">Start Free
+                Trial →</a>
+        </div>
+
+    </div>
+
+    <script src="assets/js/quiz-results.js"></script>
+</body>
+
+</html>

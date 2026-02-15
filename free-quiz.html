@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Free English Proficiency Quiz | Lingoleap</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;700;800&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+    <link rel="icon" href="assets/logo.svg">
+</head>
+
+<body>
+    <!-- Back to Home -->
+    <a href="index.html" class="back-link"
+        style="position: fixed; top: 2rem; left: 2rem; font-weight: 700; z-index: 100;">← Home</a>
+
+    <!-- Progress Bar -->
+    <div class="quiz-progress" id="quiz-progress-bar" style="display: none;">
+        <div class="progress-bar" id="progress-fill"></div>
+        <span id="question-counter">1 / 5</span>
+    </div>
+
+    <!-- Quiz Container -->
+    <div class="quiz-container">
+
+        <!-- Intro Screen -->
+        <div id="quiz-intro" class="quiz-screen active">
+            <div class="quiz-card brutalist-card" style="text-align: center;">
+                <div class="pill pill-accent">Free Assessment</div>
+                <h1 style="font-size: 3rem; margin: 1rem 0;">What's Your Band Score?</h1>
+                <p style="font-size: 1.25rem; color: var(--text-muted); margin-bottom: 2rem;">
+                    Take this 2-minute quiz to find your English proficiency baseline.
+                </p>
+
+                <div class="features-grid" style="grid-template-columns: repeat(3, 1fr); gap: 1rem; margin: 2rem 0;">
+                    <div class="feature-card" style="padding: 1.5rem; text-align: center;">
+                        <span style="font-size: 2.5rem;">📚</span>
+                        <h3 style="font-size: 1rem; margin-top: 0.5rem;">Grammar</h3>
+                    </div>
+                    <div class="feature-card" style="padding: 1.5rem; text-align: center;">
+                        <span style="font-size: 2.5rem;">💬</span>
+                        <h3 style="font-size: 1rem; margin-top: 0.5rem;">Vocabulary</h3>
+                    </div>
+                    <div class="feature-card" style="padding: 1.5rem; text-align: center;">
+                        <span style="font-size: 2.5rem;">🎯</span>
+                        <h3 style="font-size: 1rem; margin-top: 0.5rem;">Reading</h3>
+                    </div>
+                </div>
+
+                <button id="start-quiz-btn" class="btn btn-primary" style="font-size: 1.25rem; padding: 1rem 3rem;">
+                    Start Quiz →
+                </button>
+            </div>
+        </div>
+
+        <!-- Question Screen -->
+        <div id="quiz-questions" class="quiz-screen">
+            <div class="quiz-card brutalist-card">
+                <div class="question-tag pill">Question <span id="current-q-num">1</span></div>
+
+                <!-- Passage (for reading comprehension) -->
+                <div id="passage-box" class="passage-box" style="display: none;"></div>
+
+                <h2 class="question-text" id="question-text"></h2>
+
+                <div class="options-grid" id="options-grid"></div>
+
+                <div class="quiz-footer">
+                    <button class="btn btn-secondary" id="prev-btn" disabled>← Back</button>
+                    <button class="btn btn-primary" id="next-btn" disabled>Next →</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Email Gate Modal -->
+        <div id="email-gate-modal" class="modal">
+            <div class="modal-content brutalist-card" style="max-width: 500px; text-align: center;">
+                <div style="font-size: 4rem; margin-bottom: 1rem;">🎉</div>
+                <h2 style="font-size: 2rem; margin-bottom: 1rem;">Quiz Complete!</h2>
+                <p style="font-size: 1.1rem; color: var(--text-muted); margin-bottom: 2rem;">
+                    Enter your email to see your estimated Band Score and personalized study plan.
+                </p>
+
+                <form id="email-form">
+                    <input type="email" id="email-input" class="input-field" placeholder="student@example.com" required
+                        style="width: 100%; padding: 1rem; border: 2px solid black; border-radius: 12px; margin-bottom: 1rem; font-family: inherit; font-size: 1rem;">
+                    <button type="submit" class="btn btn-primary full-width" id="submit-email-btn">
+                        View My Results →
+                    </button>
+                </form>
+
+                <p class="small-text" style="font-size: 0.875rem; color: var(--text-muted); margin-top: 1rem;">
+                    We'll send your results + a free study guide to your inbox.
+                </p>
+            </div>
+        </div>
+
+    </div>
+
+    <script src="assets/js/free-quiz.js"></script>
+</body>
+
+</html>
