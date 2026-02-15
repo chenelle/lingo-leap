@@ -240,28 +240,34 @@ emailForm.addEventListener('submit', async (e) => {
     submitBtn.innerText = 'Submitting...';
 
     try {
+        // Call serverless API to submit to Sender.net
+        const response = await fetch('/api/subscribe', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({
+                email: email,
+                score: score.correctAnswers,
+                bandLevel: score.band
+            })
+        });
+
+        if (!response.ok) {
+            const errorData = await response.json();
+            throw new Error(errorData.message || 'Subscription failed');
+        }
+
+        const result = await response.json();
+        console.log('Successfully subscribed:', result);
+
         // Store score data locally for results page
         localStorage.setItem('quizScore', JSON.stringify(score));
         localStorage.setItem('userEmail', email);
-
-        // TODO: Send to Sender.net API via serverless function
-        // const response = await fetch('/api/subscribe', {
-        //     method: 'POST',
-        //     headers: { 'Content-Type': 'application/json' },
-        //     body: JSON.stringify({
-        //         email: email,
-        //         score: score.correctAnswers,
-        //         bandLevel: score.band
-        //     })
-        // });
-
-        // For now, simulate delay
-        await new Promise(resolve => setTimeout(resolve, 1000));
 
         // Redirect to results page
         window.location.href = 'quiz-results.html';
 
     } catch (error) {
+        console.error('Submission error:', error);
         alert('Something went wrong. Please try again.');
         submitBtn.disabled = false;
         submitBtn.innerText = 'View My Results →';
