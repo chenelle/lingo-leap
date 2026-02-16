@@ -17,7 +17,7 @@ export default async function handler(req, res) {
     }
 
     // Extract data from request body
-    const { email, score, bandLevel } = req.body;
+    const { email, name, score, bandLevel } = req.body;
 
     // Validate required fields
     if (!email || score === undefined || !bandLevel) {
@@ -47,6 +47,7 @@ export default async function handler(req, res) {
             },
             body: JSON.stringify({
                 email: email,
+                firstname: name || '',
                 groups: [process.env.SENDER_GROUP_ID],
                 fields: {
                     quiz_score: score.toString(),
@@ -87,6 +88,7 @@ export default async function handler(req, res) {
                 email: email,
                 campaign_id: process.env.SENDER_RESULTS_CAMPAIGN_ID,
                 personalization: {
+                    name: name || 'Friend', // Fallback if name is empty
                     band_score: bandLevel.toString(),
                     quiz_score: `${score}/5`,
                     target_band: (parseFloat(bandLevel) + 1.0).toFixed(1) // Suggest next band level

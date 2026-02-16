@@ -231,6 +231,7 @@ function calculateScore() {
 emailForm.addEventListener('submit', async (e) => {
     e.preventDefault();
     const email = document.getElementById('email-input').value;
+    const name = document.getElementById('name-input').value;
     const submitBtn = document.getElementById('submit-email-btn');
 
     const score = calculateScore();
@@ -246,6 +247,7 @@ emailForm.addEventListener('submit', async (e) => {
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify({
                 email: email,
+                name: name,
                 score: score.correctAnswers,
                 bandLevel: score.band
             })
