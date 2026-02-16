@@ -1,0 +1,42 @@
+# Tasks
+
+- [ ] Read social media workflow and style guide <!-- id: 0 -->
+- [x] Create implementation plan for 10 posts <!-- id: 1 -->
+- [x] Generate 10 post concepts (Caption + Image Prompt) <!-- id: 2 -->
+- [x] Generate images for the posts <!-- id: 3 -->
+- [x] Create a markdown file with the posts (Image + Caption) for review <!-- id: 4 -->
+- [x] Add social media posts to git repo <!-- id: 5 -->
+- [x] Sync latest manual changes to generated_posts.md <!-- id: 6 -->
+- [x] Design and generate ebook cover for "The 10-Minute CELPIP/IELTS Writing Framework" <!-- id: 7 -->
+- [x] Create Ebook Page 1 (HTML Layout & Image Render) <!-- id: 8 -->
+- [x] Create Ebook Page 2 (HTML Layout & Image Render) <!-- id: 9 -->
+- [x] Compile pages into PDF format <!-- id: 10 -->
+- [x] Regenerate Cover & Pages as A4 High-Res HTML and Compile PDF <!-- id: 11 -->
+- [x] Brainstorm High-Converting Interactive Lead Magnet Ideas <!-- id: 12 -->
+- [x] Implement "English Proficiency & Recommendation" Quiz <!-- id: 13 -->
+    - [x] Create Quiz Logic and Question Bank (JS) <!-- id: 14 -->
+    - [x] Build Quiz Interface with Email Gate (HTML/CSS) <!-- id: 15 -->
+    - [x] Design Results Page with Personalized Recommendations <!-- id: 16 -->
+    - [x] Link Quiz to Homepage <!-- id: 17 -->
+- [x] Push changes to GitHub <!-- id: 18 -->
+- [x] Push Zoho verification to GitHub <!-- id: 19 -->
+- [x] Rollback to commit 491f40fa <!-- id: 20 -->
+- [x] Push to Remote after Rollback <!-- id: 21 -->
+- [x] Deploy to Vercel <!-- id: 22 -->
+- [ ] Implement Lead Magnet Quiz <!-- id: 23 -->
+    - [x] Create quiz HTML structure <!-- id: 24 -->
+    - [x] Implement quiz JavaScript logic <!-- id: 25 -->
+    - [x] Create email gate modal <!-- id: 26 -->
+    - [x] Create results page <!-- id: 27 -->
+    - [x] Build Sender.net API endpoint <!-- id: 28 -->
+        - [x] Create .env file template <!-- id: 31 -->
+        - [x] Create /api/subscribe.js serverless function <!-- id: 32 -->
+        - [x] Update quiz.js to call API endpoint <!-- id: 33 -->
+        - [x] Test API integration locally <!-- id: 34 -->
+        - [x] Add env vars to Vercel <!-- id: 35 -->
+    - [x] Add quiz CTA to homepage <!-- id: 29 -->
+    - [x] Test and verify quiz flow <!-- id: 30 -->
+    - [x] Refine Quiz UI & UX <!-- id: 36 -->
+        - [x] Add privacy disclaimer to email form <!-- id: 37 -->
+        - [x] Update CTA button text for better value prop <!-- id: 38 -->
+        - [x] Add optional Name field for personalization <!-- id: 39 -->
