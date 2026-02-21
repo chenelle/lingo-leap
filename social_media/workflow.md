@@ -9,13 +9,14 @@
     *   *Ex: "Stop saying 'Very Good'!"*
 
 ## Phase 2: Creation (The "Make")
-### 1. Image Generation (Nano Banana)
+### 1. Subfolder Setup & Image Generation (Nano Banana)
+*   **CRITICAL: Folder Setup:** First, create a brand new subfolder inside `social_media/` for this explicit workflow iteration (e.g., `social_media/batch_02/`). ALL images and textual content for this workflow run MUST be stored inside this directory.
 *   Open your image generator.
 *   Reference `style_guide.md` for the correct prompt formula.
 *   **Action:** Generate 4-5 variations.
 *   **Selection:** Pick the one with the cleanest lines and most accurate color representation.
 *   *Tip:* If the green is wrong, basic color correction is easier than regenerating perfection.
-*   **Storage:** Save the finalized image file into a new subfolder for this batch (e.g., `social_media/batch_01/`).
+*   **Storage:** Save the finalized image file directly into the freshly created iteration subfolder (e.g., `./social_media/batch_02/image_name.png`).
 
 ### 2. Design Assembly (Canva/Figma)
 *   **Canvas Size:** 1080x1350 (Portrait 4:5) for feed, 1080x1920 (9:16) for Stories.
@@ -27,9 +28,9 @@
 
 ## Phase 3: Documentation, Captioning & Posting
 1.  **Document the Post:**
-    *   Create a new subfolder inside `social_media/` for this batch of posts (e.g., `batch_01/`) if you haven't already.
-    *   Save or generate the content into a markdown file (`.md`) within this new subfolder.
-    *   Embed the finalized image directly into this document using its relative local file path (e.g., `./image_name.png`).
+    *   Navigate inside the specific iteration subfolder created in Phase 2.
+    *   Save or generate the text content into a markdown file (e.g., `posts.md`) strictly within this assigned subfolder.
+    *   Embed the finalized images directly into this document using their relative local file paths (e.g., `./image_name.png`).
 2.  **Write Caption:**
      *   Add the caption below the embedded image in the markdown document:
     *   **Headline:** Repeat the hook.
