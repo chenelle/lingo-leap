@@ -1,9 +1,9 @@
-# Instagram Workflow: From Idea to Post
+# LingoLeap Instagram Workflow: From Idea to Post
 
 ## Phase 1: Ideation (The "What")
 1.  **Identify the Content Bucket:**
     *   **Educational:** ESL tip, Idiom of the day, Grammar rule.
-    *   **Promotional:** App feature highlight, "Why Upgrade", Success story.
+    *   **Promotional:** LingoLeap app feature highlight, "Why Upgrade", Success story.
     *   **Engagement:** "This or That", Quiz question, Relatable study struggle.
 2.  **Draft the Hook:** What is the one sentence that stops the scroll?
     *   *Ex: "Stop saying 'Very Good'!"*
@@ -15,6 +15,7 @@
 *   **Action:** Generate 4-5 variations.
 *   **Selection:** Pick the one with the cleanest lines and most accurate color representation.
 *   *Tip:* If the green is wrong, basic color correction is easier than regenerating perfection.
+*   **Storage:** Save the finalized image file into a new subfolder for this batch (e.g., `social_media/batch_01/`).
 
 ### 2. Design Assembly (Canva/Figma)
 *   **Canvas Size:** 1080x1350 (Portrait 4:5) for feed, 1080x1920 (9:16) for Stories.
@@ -24,13 +25,18 @@
     *   Add "Shadowbox" border (Solid black 2px border + 4px offset shadow).
     *   Add additional Text using **Plus Jakarta Sans** if needed (complementing image text).
 
-## Phase 3: Captioning & Posting
-1.  **Write Caption:**
+## Phase 3: Documentation, Captioning & Posting
+1.  **Document the Post:**
+    *   Create a new subfolder inside `social_media/` for this batch of posts (e.g., `batch_01/`) if you haven't already.
+    *   Save or generate the content into a markdown file (`.md`) within this new subfolder.
+    *   Embed the finalized image directly into this document using its relative local file path (e.g., `./image_name.png`).
+2.  **Write Caption:**
+     *   Add the caption below the embedded image in the markdown document:
     *   **Headline:** Repeat the hook.
     *   **Body:** Short value prop or explanation.
-    *   **CTA:** "Download Ai Study Buddy" or "Link in Bio".
+    *   **CTA:** Direct users to try LingoLeap or take the FREE interactive IELTS/CELPIP score estimator quiz linked in the bio.
 2.  **Hashtags:**
-    *   #ESL #LearnEnglish #StudyGram #IELTSPrep #EnglishTips #KawaiiAesthetic #EdTech
+    *   #LingoLeap #ESL #LearnEnglish #StudyGram #IELTSPrep #EnglishTips #KawaiiAesthetic #EdTech
 3.  **Post:**
     *   Tag relevant accounts.
     *   Add location (if applicable).
