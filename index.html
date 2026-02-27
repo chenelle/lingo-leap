@@ -276,7 +276,7 @@
                         <a href="signup.html" class="btn btn-primary">Get Started for Free</a>
                         <span class="small-text">No credit card required used.</span>
                     </div>
-                    <span class="small-text">No credit card required used.</span>
+
                 </div>
             </div>
         </div>
@@ -285,10 +285,29 @@
     <!-- Detailed Footer -->
     <footer>
         <div class="container footer-grid">
+            <!-- Brand + Newsletter Column -->
             <div class="footer-col brand-col">
                 <h3>Lingoleap</h3>
-                <p>Making ESL exam preparation accessible, affordable, and effective for everyone.</p>
+                <p style="margin-bottom: 1.5rem;">Making ESL exam preparation accessible, affordable, and effective for
+                    everyone.</p>
+
+                <!-- Inline Newsletter Form -->
+                <p
+                    style="font-size: 0.85rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.05em; color: var(--text-muted); margin-bottom: 0.75rem;">
+                    Get your free band score quiz →</p>
+                <form id="footer-newsletter-form" class="newsletter-form footer-inline-form">
+                    <input type="text" id="footer-name" class="footer-input-field" placeholder="Your name">
+                    <input type="email" id="footer-email" class="footer-input-field" placeholder="student@example.com"
+                        required>
+                    <button type="submit" class="btn btn-primary footer-form-btn" id="footer-submit-btn">Send Me The
+                        Quiz →</button>
+                    <div id="footer-form-message"
+                        style="margin-top: 0.5rem; font-weight: 600; font-size: 0.875rem; display: none;"></div>
+                </form>
+                <p style="font-size: 0.75rem; color: var(--text-muted); margin-top: 0.75rem;">🔒 No spam. Unsubscribe
+                    anytime.</p>
             </div>
+
             <div class="footer-col">
                 <h4>Platform</h4>
                 <a href="#">IELTS Prep</a>
@@ -315,6 +334,115 @@
             <p>&copy; 2024 Lingoleap Inc. All rights reserved.</p>
         </div>
     </footer>
+
+    <!-- 75% Scroll Popup -->
+    <div id="scroll-popup" class="scroll-popup">
+        <div class="scroll-popup-card brutalist-card text-center"
+            style="position: relative; max-width: 400px; padding: 2.5rem 2rem;">
+            <button id="close-popup-btn"
+                style="position: absolute; top: 10px; right: 15px; background: none; border: none; font-size: 1.5rem; font-weight: 800; cursor: pointer; color: var(--text-muted);">&times;</button>
+            <div style="font-size: 3.5rem; margin-bottom: 0.5rem; line-height: 1;">🎁</div>
+            <h3 style="font-size: 1.5rem; margin-bottom: 0.5rem; line-height: 1.2;">Don't leave empty handed!</h3>
+            <p style="font-size: 0.95rem; margin-bottom: 1.5rem; color: var(--text-muted);">Drop your email below and
+                we'll send you our free <strong>Band Score Estimator Quiz</strong> immediately.</p>
+
+            <form id="popup-newsletter-form" class="newsletter-form"
+                style="display: flex; flex-direction: column; gap: 0.75rem;">
+                <input type="text" id="popup-name" class="input-field" placeholder="First Name"
+                    style="padding: 0.8rem; border: var(--border-width) solid var(--border-color); border-radius: 8px; font-family: inherit; font-size: 0.95rem;">
+                <input type="email" id="popup-email" class="input-field" placeholder="Your Email" required
+                    style="padding: 0.8rem; border: var(--border-width) solid var(--border-color); border-radius: 8px; font-family: inherit; font-size: 0.95rem;">
+                <button type="submit" class="btn btn-primary" id="popup-submit-btn"
+                    style="padding: 0.8rem; font-size: 1rem; width: 100%;">Send Me The Quiz →</button>
+                <div id="popup-form-message"
+                    style="margin-top: 0.25rem; font-weight: 600; font-size: 0.875rem; display: none;"></div>
+            </form>
+            <p style="font-size: 0.75rem; color: #9CA3AF; margin-top: 1rem;">No spam. Unsubscribe anytime.</p>
+        </div>
+    </div>
+
+    <!-- Scroll Popup & Form Logic -->
+    <script>
+        (function () {
+            const scrollPopup = document.getElementById('scroll-popup');
+            const closePopupBtn = document.getElementById('close-popup-btn');
+            const footerForm = document.getElementById('footer-newsletter-form');
+            const popupForm = document.getElementById('popup-newsletter-form');
+
+            // 1. Scroll Popup Logic (75% threshold)
+            if (scrollPopup) {
+                const hasSeenPopup = sessionStorage.getItem('hasSeenSignupPopup');
+
+                if (!hasSeenPopup) {
+                    const handleScroll = () => {
+                        const scrollPosition = window.scrollY || window.pageYOffset;
+                        const totalHeight = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+                        if (totalHeight <= 0) return;
+                        const scrollPercentage = (scrollPosition / totalHeight) * 100;
+                        if (scrollPercentage >= 75) {
+                            scrollPopup.classList.add('show');
+                            sessionStorage.setItem('hasSeenSignupPopup', 'true');
+                            window.removeEventListener('scroll', handleScroll);
+                        }
+                    };
+                    window.addEventListener('scroll', handleScroll);
+                }
+
+                if (closePopupBtn) {
+                    closePopupBtn.addEventListener('click', () => scrollPopup.classList.remove('show'));
+                }
+
+                scrollPopup.addEventListener('click', (e) => {
+                    if (e.target === scrollPopup) scrollPopup.classList.remove('show');
+                });
+            }
+
+            // 2. Form Submission Handler
+            async function handleNewsletterSubmit(e, formType) {
+                e.preventDefault();
+                const nameInput = document.getElementById(`${formType}-name`).value;
+                const emailInput = document.getElementById(`${formType}-email`).value;
+                const submitBtn = document.getElementById(`${formType}-submit-btn`);
+                const messageDiv = document.getElementById(`${formType}-form-message`);
+
+                messageDiv.style.display = 'none';
+                messageDiv.className = '';
+                const originalText = submitBtn.innerText;
+                submitBtn.innerText = 'Sending...';
+                submitBtn.disabled = true;
+
+                try {
+                    const response = await fetch('/api/newsletter', {
+                        method: 'POST',
+                        headers: { 'Content-Type': 'application/json' },
+                        body: JSON.stringify({ name: nameInput, email: emailInput })
+                    });
+                    if (!response.ok) {
+                        const data = await response.json();
+                        throw new Error(data.message || 'Signup failed');
+                    }
+                    messageDiv.textContent = 'Awesome! Check your inbox for the quiz link. 🚀';
+                    messageDiv.className = 'msg-success';
+                    messageDiv.style.display = 'block';
+                    submitBtn.innerText = 'Sent!';
+                    document.getElementById(`${formType}-name`).value = '';
+                    document.getElementById(`${formType}-email`).value = '';
+                    if (formType === 'popup') {
+                        setTimeout(() => scrollPopup.classList.remove('show'), 3000);
+                    }
+                } catch (error) {
+                    messageDiv.textContent = error.message || 'Something went wrong. Please try again.';
+                    messageDiv.className = 'msg-error';
+                    messageDiv.style.display = 'block';
+                    submitBtn.innerText = originalText;
+                    submitBtn.disabled = false;
+                }
+            }
+
+            if (footerForm) footerForm.addEventListener('submit', (e) => handleNewsletterSubmit(e, 'footer'));
+            if (popupForm) popupForm.addEventListener('submit', (e) => handleNewsletterSubmit(e, 'popup'));
+        })();
+    </script>
 
     <!-- Simple Analytics -->
     <script async defer src="https://scripts.simpleanalyticscdn.com/latest.js"></script>

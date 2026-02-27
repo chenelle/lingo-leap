@@ -224,3 +224,114 @@ skipBtn.addEventListener('click', nextQuestion);
 
 // Start
 initQuiz();
+
+// --- Customer Acquisition Forms Logic ---
+(function () {
+    const scrollPopup = document.getElementById('scroll-popup');
+    const closePopupBtn = document.getElementById('close-popup-btn');
+    const footerForm = document.getElementById('footer-newsletter-form');
+    const popupForm = document.getElementById('popup-newsletter-form');
+
+    // 1. Scroll Popup Logic (75% threshold)
+    if (scrollPopup) {
+        // Check if already shown this session
+        const hasSeenPopup = sessionStorage.getItem('hasSeenSignupPopup');
+
+        if (!hasSeenPopup) {
+            const handleScroll = () => {
+                const scrollPosition = window.scrollY || window.pageYOffset;
+                const totalHeight = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+
+                // If the page is too short to scroll, don't show the scroll popup
+                if (totalHeight <= 0) return;
+
+                const scrollPercentage = Math.round((scrollPosition / totalHeight) * 100);
+
+                if (scrollPercentage >= 75) {
+                    scrollPopup.classList.add('show');
+                    sessionStorage.setItem('hasSeenSignupPopup', 'true');
+                    window.removeEventListener('scroll', handleScroll);
+                }
+            };
+
+            window.addEventListener('scroll', handleScroll);
+        }
+
+        // Close Popup
+        closePopupBtn.addEventListener('click', () => {
+            scrollPopup.classList.remove('show');
+        });
+
+        // Close on outside click
+        scrollPopup.addEventListener('click', (e) => {
+            if (e.target === scrollPopup) {
+                scrollPopup.classList.remove('show');
+            }
+        });
+    }
+
+    // 2. Form Submission Handler
+    async function handleNewsletterSubmit(e, formType) {
+        e.preventDefault();
+
+        const nameInput = document.getElementById(`${formType}-name`).value;
+        const emailInput = document.getElementById(`${formType}-email`).value;
+        const submitBtn = document.getElementById(`${formType}-submit-btn`);
+        const messageDiv = document.getElementById(`${formType}-form-message`);
+
+        // Reset message
+        messageDiv.style.display = 'none';
+        messageDiv.className = '';
+
+        // Loading State
+        const originalText = submitBtn.innerText;
+        submitBtn.innerText = 'Sending...';
+        submitBtn.disabled = true;
+
+        try {
+            const response = await fetch('/api/newsletter', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({ name: nameInput, email: emailInput })
+            });
+
+            if (!response.ok) {
+                const data = await response.json();
+                throw new Error(data.message || 'Signup failed');
+            }
+
+            // Success State
+            messageDiv.textContent = 'Awesome! Check your inbox for the quiz link. 🚀';
+            messageDiv.className = 'msg-success';
+            messageDiv.style.display = 'block';
+            submitBtn.innerText = 'Sent!';
+
+            // Clear form
+            document.getElementById(`${formType}-name`).value = '';
+            document.getElementById(`${formType}-email`).value = '';
+
+            // Auto close popup on success after 3 seconds
+            if (formType === 'popup') {
+                setTimeout(() => {
+                    scrollPopup.style.display = 'none';
+                }, 3000);
+            }
+
+        } catch (error) {
+            console.error('Newsletter Signup Error:', error);
+            messageDiv.textContent = error.message || 'Something went wrong. Please try again.';
+            messageDiv.className = 'msg-error';
+            messageDiv.style.display = 'block';
+            submitBtn.innerText = originalText;
+            submitBtn.disabled = false;
+        }
+    }
+
+    if (footerForm) {
+        footerForm.addEventListener('submit', (e) => handleNewsletterSubmit(e, 'footer'));
+    }
+
+    if (popupForm) {
+        popupForm.addEventListener('submit', (e) => handleNewsletterSubmit(e, 'popup'));
+    }
+})();

@@ -799,6 +799,102 @@ footer {
     border-top: 2px solid #E5E7EB;
 }
 
+/* --- Customer Acquisition Forms --- */
+
+/* Inline Footer Newsletter Form */
+.footer-inline-form {
+    display: flex;
+    flex-direction: column;
+    gap: 0.6rem;
+}
+
+.footer-input-field {
+    width: 100%;
+    padding: 0.65rem 0.85rem;
+    border: 1.5px solid #D1D5DB;
+    border-radius: 8px;
+    font-family: var(--font-stack);
+    font-size: 0.9rem;
+    color: var(--text-main);
+    background: #fff;
+    outline: none;
+    transition: border-color 0.2s, box-shadow 0.2s;
+    box-sizing: border-box;
+}
+
+.footer-input-field::placeholder {
+    color: #9CA3AF;
+}
+
+.footer-input-field:focus {
+    border-color: var(--primary);
+    box-shadow: 0 0 0 3px rgba(34, 197, 94, 0.15);
+}
+
+.footer-form-btn {
+    width: 100%;
+    padding: 0.65rem 1rem;
+    font-size: 0.9rem;
+    margin-top: 0.1rem;
+}
+
+/* Scroll Popup */
+.scroll-popup {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    /* Semi-transparent background */
+    backdrop-filter: blur(5px);
+    z-index: 1000;
+    display: none;
+    /* hidden by default */
+    align-items: center;
+    justify-content: center;
+    animation: fadeIn 0.3s ease-out;
+}
+
+.scroll-popup.show {
+    display: flex !important;
+}
+
+.scroll-popup-card {
+    background: var(--surface);
+    width: 90%;
+    max-width: 400px;
+    box-shadow: 12px 12px 0 0 var(--accent);
+    /* distinct accent shadow */
+    animation: slideUp 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+#close-popup-btn:hover {
+    color: var(--border-color) !important;
+    transform: scale(1.1);
+}
+
+/* Message Styles */
+.msg-success {
+    color: #10B981;
+}
+
+.msg-error {
+    color: #EF4444;
+}
+
+@keyframes slideUp {
+    from {
+        transform: translateY(100px);
+        opacity: 0;
+    }
+
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
 .user-name {
     font-weight: 800;
 }
@@ -1256,6 +1352,7 @@ footer {
         margin: -1rem auto;
     }
 }
+
 /* ===== QUIZ STYLES ===== */
 
 /* Quiz Container & Screens */
@@ -1457,15 +1554,15 @@ footer {
     .quiz-card {
         padding: 2rem 1.5rem;
     }
-    
+
     .band-score {
         font-size: 4rem;
     }
-    
+
     .analysis-grid {
         grid-template-columns: 1fr;
     }
-    
+
     .quiz-progress {
         padding: 0.75rem 1rem;
     }
