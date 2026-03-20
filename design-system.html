@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lingo Leap Design System</title>
+    
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    
+    <!-- Styles -->
+    <link rel="stylesheet" href="styles.css">
+    
+    <style>
+        .ds-section {
+            padding: 4rem 0;
+            border-bottom: var(--border-width) solid var(--border-color);
+        }
+        .ds-section:last-child {
+            border-bottom: none;
+        }
+        .ds-section-title {
+            margin-bottom: 2rem;
+            display: inline-block;
+            position: relative;
+        }
+        .color-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+            gap: 2rem;
+        }
+        .color-card {
+            background: var(--surface);
+            padding: 1rem;
+            border: var(--border-width) solid var(--border-color);
+            border-radius: var(--radius-lg);
+            box-shadow: 6px 6px 0 0 var(--border-color);
+        }
+        .color-swatch {
+            height: 100px;
+            border: var(--border-width) solid var(--border-color);
+            border-radius: 12px;
+            margin-bottom: 1rem;
+        }
+        .component-row {
+            display: flex;
+            gap: 2rem;
+            align-items: center;
+            flex-wrap: wrap;
+            margin-bottom: 2rem;
+            padding: 2rem;
+            background: var(--surface);
+            border: var(--border-width) solid var(--border-color);
+            border-radius: var(--radius-lg);
+            box-shadow: var(--shadow-offset) var(--shadow-offset) 0 0 var(--border-color);
+        }
+        .ds-label {
+            font-size: 0.875rem;
+            font-weight: 700;
+            color: var(--text-muted);
+            margin-bottom: 1rem;
+            display: block;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+        .ds-font-preview {
+            margin-bottom: 2rem;
+            padding-bottom: 2rem;
+            border-bottom: 1px dashed #D1D5DB;
+        }
+        .ds-font-preview:last-child {
+            border-bottom: none;
+            margin-bottom: 0;
+            padding-bottom: 0;
+        }
+        .brutalist-card-wrapper {
+            max-width: 400px;
+            position: relative;
+        }
+    </style>
+</head>
+<body style="background: var(--background);">
+
+    <nav class="navbar">
+        <div class="container nav-container">
+            <div class="logo" style="display: flex; align-items: center; gap: 0.5rem;">
+                <img src="assets/logo.svg" alt="Logo" style="height: 48px; width: auto;" onerror="this.src='data:image/svg+xml;utf8,<svg xmlns=\'http://www.w3.org/2000/svg\' viewBox=\'0 0 100 100\'><circle cx=\'50\' cy=\'50\' r=\'40\' fill=\'%2322C55E\' stroke=\'black\' stroke-width=\'4\'/></svg>'">
+                Lingo Leap Design System
+            </div>
+            <div class="nav-links">
+                <div class="pill pill-green" style="margin: 0; animation: none;">v1.0 (Kawaii Neo-Brutalist)</div>
+            </div>
+        </div>
+    </nav>
+
+    <div class="container">
+        
+        <!-- Typography -->
+        <section class="ds-section">
+            <h2 class="ds-section-title">Typography <div class="floating-element" style="font-size: 1.5rem; top: -10px; right: -30px; animation: none;">✏️</div></h2>
+            
+            <div class="component-row" style="display: block;">
+                <div class="ds-font-preview">
+                    <span class="ds-label">h1 - Heavy & Bold (800)</span>
+                    <h1>The quick brown fox jumps over the lazy dog.</h1>
+                </div>
+                <div class="ds-font-preview">
+                    <span class="ds-label">h2 - Section Headers (800)</span>
+                    <h2>Learning that feels like playing.</h2>
+                </div>
+                <div class="ds-font-preview">
+                    <span class="ds-label">h3 - Card Titles (800)</span>
+                    <h3>Writing Task 1 & 2</h3>
+                </div>
+                <div class="ds-font-preview">
+                    <span class="ds-label">Body Text (400 / 600 / 700)</span>
+                    <p>Level up your skills with gamified lessons, <strong>custom quizzes from your notes</strong>, and stress-free practice content for IELTS & CELPIP. It uses <em>Plus Jakarta Sans</em> to look friendly but structured.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Colors -->
+        <section class="ds-section">
+            <h2 class="ds-section-title">Colors <div class="floating-element" style="font-size: 1.5rem; top: -10px; right: -30px; animation: none;">🎨</div></h2>
+            
+            <div class="color-grid">
+                <!-- Brand Colors -->
+                <div class="color-card">
+                    <div class="color-swatch" style="background: var(--primary);"></div>
+                    <span class="ds-label">Primary</span>
+                    <p><strong>Vibrant Green</strong><br><code>#22C55E</code></p>
+                </div>
+                <div class="color-card">
+                    <div class="color-swatch" style="background: var(--secondary);"></div>
+                    <span class="ds-label">Secondary</span>
+                    <p><strong>Soft Blue</strong><br><code>#BFDBFE</code></p>
+                </div>
+                <div class="color-card">
+                    <div class="color-swatch" style="background: var(--accent);"></div>
+                    <span class="ds-label">Accent</span>
+                    <p><strong>Coral Pink</strong><br><code>#FCA5A5</code></p>
+                </div>
+
+                <!-- Surface / Background -->
+                <div class="color-card">
+                    <div class="color-swatch" style="background: var(--background);"></div>
+                    <span class="ds-label">Background</span>
+                    <p><strong>Cream</strong><br><code>#F5F3F0</code></p>
+                </div>
+                <div class="color-card">
+                    <div class="color-swatch" style="background: var(--surface);"></div>
+                    <span class="ds-label">Surface</span>
+                    <p><strong>Pure White</strong><br><code>#FFFFFF</code></p>
+                </div>
+
+                <!-- Text -->
+                <div class="color-card">
+                    <div class="color-swatch" style="background: var(--text-main);"></div>
+                    <span class="ds-label">Text Main</span>
+                    <p><strong>Dark Charcoal</strong><br><code>#1F2937</code></p>
+                </div>
+                <div class="color-card">
+                    <div class="color-swatch" style="background: var(--text-muted);"></div>
+                    <span class="ds-label">Text Muted</span>
+                    <p><strong>Muted Grey</strong><br><code>#6B7280</code></p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Buttons -->
+        <section class="ds-section">
+            <h2 class="ds-section-title">Buttons & Interaction <div class="floating-element" style="font-size: 1.5rem; top: -10px; right: -30px; animation: none;">✨</div></h2>
+            
+            <span class="ds-label">Core Buttons</span>
+            <div class="component-row">
+                <button class="btn btn-primary">Primary Button</button>
+                <button class="btn btn-secondary">Secondary Button</button>
+                <button class="btn btn-outline">Outline Text Button</button>
+            </div>
+
+            <span class="ds-label">Pills & Tags</span>
+            <div class="component-row">
+                <div class="pill">Default Pill</div>
+                <div class="pill pill-green">Green Pill</div>
+                <div class="pill pill-accent">Accent Pill</div>
+            </div>
+        </section>
+
+        <!-- Cards -->
+        <section class="ds-section" style="padding-bottom: 8rem;">
+            <h2 class="ds-section-title">Cards & Structure <div class="floating-element" style="font-size: 1.5rem; top: -10px; right: -30px; animation: none;">⭐</div></h2>
+            
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 4rem;">
+                
+                <!-- Brutalist Hero Card Example -->
+                <div>
+                    <span class="ds-label">Hero/Graphic Brutalist Card</span>
+                    <div class="brutalist-card-wrapper mt-4">
+                        <div class="brutalist-card">
+                            <div style="height: 200px; background: var(--background); border: var(--border-width) solid var(--border-color); border-radius: 12px; display: flex; align-items: center; justify-content: center;">
+                                🐸 Image Area
+                            </div>
+                            <!-- Floating tags -->
+                            <div class="floating-badge badge-1" style="animation: none;">✅ Correct: 10</div>
+                            <div class="floating-badge badge-2" style="animation: none; bottom: -15px; right: 10px;">🔥 5 Day Streak</div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Feature Card Example -->
+                <div>
+                    <span class="ds-label">Feature Card</span>
+                    <div class="feature-card" style="margin-top: 1rem;">
+                        <div class="icon-box" style="background: var(--secondary);">
+                            📝
+                        </div>
+                        <h3>Interactive Component</h3>
+                        <p style="margin-top: 0.5rem; color: var(--text-muted);">This card elevates on hover and rotates slightly, showcasing the interactive neo-brutalist interaction model.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    </div>
+
+</body>
+</html>
