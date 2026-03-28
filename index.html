@@ -17,6 +17,9 @@
     <!-- Styles -->
     <link rel="stylesheet" href="styles.css">
 
+    <!-- Gumroad SDK -->
+    <script src="https://gumroad.com/js/gumroad.js"></script>
+
     <!-- Favicon -->
     <link rel="icon" href="assets/logo.svg">
 </head>
@@ -265,6 +268,65 @@
         </div>
     </section>
 
+    <!-- Pricing Section -->
+    <section id="pricing" class="pricing-section">
+        <div class="container">
+            <div class="section-header">
+                <div class="pill pill-green">Limited Offer</div>
+                <h2>Start your journey today.</h2>
+                <p>Lock in the early-bird price before we launch publicly.</p>
+            </div>
+
+            <div class="pricing-grid">
+                <!-- Free Plan -->
+                <div class="pricing-card">
+                    <div class="pricing-card-header">
+                        <h3>Free</h3>
+                        <div class="pricing-amount">
+                            <span class="price">$0</span>
+                            <span class="price-period">/forever</span>
+                        </div>
+                        <p class="pricing-desc">Great for trying out the basics.</p>
+                    </div>
+                    <ul class="pricing-features">
+                        <li>✅ 5 AI-generated quizzes</li>
+                        <li>✅ 1 Writing feedback</li>
+                        <li>✅ Band Score Estimator</li>
+                        <li>❌ Speaking Simulator</li>
+                        <li>❌ Unlimited quizzes</li>
+                        <li>❌ Priority support</li>
+                    </ul>
+                    <a href="signup.html" class="btn btn-secondary pricing-btn">Start Free</a>
+                </div>
+
+                <!-- VIP Plan (Gumroad) -->
+                <div class="pricing-card pricing-card-featured">
+                    <div class="pricing-badge">🔥 Most Popular</div>
+                    <div class="pricing-card-header">
+                        <h3>VIP Early Access</h3>
+                        <div class="pricing-amount">
+                            <span class="price">$5</span>
+                            <span class="price-period">CAD / one-time</span>
+                        </div>
+                        <p class="pricing-desc">Full access. No subscription. Pay once.</p>
+                    </div>
+                    <ul class="pricing-features">
+                        <li>✅ Unlimited AI quizzes</li>
+                        <li>✅ Unlimited writing feedback</li>
+                        <li>✅ Band Score Estimator</li>
+                        <li>✅ Speaking Simulator</li>
+                        <li>✅ Custom quiz from your notes</li>
+                        <li>✅ Priority support & updates</li>
+                    </ul>
+                    <a class="gumroad-button btn btn-primary pricing-btn" href="https://lingoleap3.gumroad.com/l/wenyqp" data-gumroad-single-product="true" id="gumroad-pay-btn">
+                        Get Early Access — $5 💳
+                    </a>
+                    <span class="pricing-guarantee">🔒 30-day money-back guarantee</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
     <!-- CTA Section -->
     <section class="cta-section">
         <div class="container">
@@ -274,7 +336,7 @@
                 <div class="cta-buttons">
                     <div class="cta-buttons">
                         <a href="signup.html" class="btn btn-primary">Get Started for Free</a>
-                        <span class="small-text">No credit card required used.</span>
+                        <span class="small-text">No credit card required.</span>
                     </div>
 
                 </div>
