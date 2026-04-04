@@ -623,14 +623,39 @@ img {
 }
 
 /* Override Gumroad default button styles */
-.pricing-card-featured .gumroad-button {
+.pricing-card-featured .gumroad-button,
+.pricing-card-featured a.gumroad-button {
     background: var(--primary) !important;
     color: var(--text-main) !important;
     border-color: var(--border-color) !important;
 }
 
-.pricing-card-featured .gumroad-button:hover {
+.pricing-card-featured .gumroad-button:hover,
+.pricing-card-featured a.gumroad-button:hover {
     background: #16A34A !important;
+    color: var(--text-main) !important;
+}
+
+/* Force Gumroad overlay/logo to not hide the text */
+.pricing-card-featured .gumroad-button .gumroad-button-logo,
+.pricing-card-featured .gumroad-button .gumroad-loading-indicator {
+    display: none !important;
+}
+
+.pricing-card-featured .gumroad-button-text {
+    color: var(--text-main) !important;
+    opacity: 1 !important;
+    visibility: visible !important;
+}
+
+/* Ensure the Gumroad overlay doesn't cover the button text */
+.pricing-card-featured .gumroad-button::before,
+.pricing-card-featured .gumroad-button::after {
+    display: none !important;
+}
+
+.pricing-card-featured .gumroad-button * {
+    color: var(--text-main) !important;
 }
 
 .pricing-guarantee {
